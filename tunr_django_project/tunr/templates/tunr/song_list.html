@@ -1,13 +1,14 @@
 {% extends 'tunr/base.html' %}
 
 {% block content %}
-<h2>Songs <a href="">(+)</a></h2>
 
+<h2>Songs <a href="{% url 'song_create' %}">(+)</a></h2>
 <ul>
-  {% for song in songs %}
-    <li>
-      <a href="{% url 'song_detail' pk=song.pk %}">{{song.title}}</a>
-    </li>
-  {% endfor%}
+    {% for song in songs %}
+        <li>
+            <a href="{% url 'song_detail' id=song.id %}">{{ song.title }}</a>
+            <a href="{% url 'song_delete' id=song.id %}" class="delete">x</a>
+        </li>
+    {% endfor %}
 </ul>
 {% endblock %}

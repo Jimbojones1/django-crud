@@ -1,20 +1,17 @@
 {% extends 'tunr/base.html' %}
 
 {% block content %}
-
-
-<h2>{{ artist.name }} <a href="">(edit)</a></h2>
+<h2>{{ artist.name }} <a href="{% url 'artist_edit' pk=artist.pk %}">(edit)</a></h2>
 <h4>{{ artist.nationality }}</h4>
 
 <img src="{{ artist.photo_url }}" alt="" class="artist-photo">
 
-<h3>Songs <a href="">(+)</a></h3>
+<h3>Songs <a href="{% url 'song_create' %}">(+)</a></h3>
 <ul>
     {% for song in artist.songs.all %}
         <li>
-            <a href="">{{ song.title }}-{{ song.album }}</a>
+            <a href="{% url 'song_detail' id=song.id %}">{{ song.title }}-{{ song.album }}</a>
         </li>
     {% endfor %}
 </ul>
-
 {% endblock %}
