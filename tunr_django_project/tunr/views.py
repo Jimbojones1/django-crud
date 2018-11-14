@@ -10,4 +10,15 @@ def artist_list(request):
     return render(request, 'tunr/artist_list.html', {'artists': artists})
 
 
+### Show Route
+def artist_detail(request, pk):
+    #pk is short for primary key, basically the id in sql
+    artist = Artist.objects.get(id=pk)
+    return render(request, 'tunr/artist_detail.html', {'artist': artist})
 
+
+
+
+def song_list(request):
+    songs = Song.objects.all()
+    return render(request, 'tunr/song_list.html', {'songs': songs})

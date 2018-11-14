@@ -6,7 +6,7 @@
 <ul>
   {% for artist in artists %}
     <li>
-      <a href="">{{artist.name}}</a>
+      <a href="{% url 'artist_detail' pk=artist.pk %}">{{artist.name}}</a>
     </li>
   {% endfor%}
 </ul>
