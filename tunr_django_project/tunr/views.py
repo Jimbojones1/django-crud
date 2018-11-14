@@ -22,3 +22,10 @@ def artist_detail(request, pk):
 def song_list(request):
     songs = Song.objects.all()
     return render(request, 'tunr/song_list.html', {'songs': songs})
+
+
+### Show Route
+def song_detail(request, pk):
+    #pk is short for primary key, basically the id in sql
+    song = Song.objects.get(id=pk)
+    return render(request, 'tunr/song_detail.html', {'song': song})
